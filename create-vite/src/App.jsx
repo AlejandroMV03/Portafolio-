@@ -11,33 +11,37 @@ import SplashScreen from "./Pages/SplashScreen";
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   const handleSplashFinish = () => {
     setFadeOut(true);
     setTimeout(() => {
       setShowSplash(false);
-      setShowContent(true);
-    }, 700); // 700ms para la transición
+    }, 1800); // transición muy suave (1.8s)
   };
 
   return (
     <BrowserRouter>
-      {showSplash ? (
-        <div
-          className={`transition-opacity duration-700 ${
-            fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-        >
-          <SplashScreen onFinish={handleSplashFinish} />
-        </div>
-      ) : (
-        <div
-          className={`transition-opacity duration-700 ${
-            showContent ? "opacity-100" : "opacity-0"
-          }`}
-        >
+      <div className="relative min-h-screen overflow-hidden">
+        {/* Fondo de partículas SIEMPRE presente y fijo */}
+        <div className="fixed inset-0 -z-10">
           <ParticlesBackground />
+        </div>
+
+        {/* SplashScreen cubre todo, pero solo cambia opacidad */}
+        <div
+          className={`fixed inset-0 z-40 transition-opacity duration-[1800ms] bg-transparent ${
+            showSplash && !fadeOut ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
+        </div>
+
+        {/* Contenido principal, fade-in después del splash */}
+        <div
+          className={`relative z-10 transition-opacity duration-[1800ms] ${
+            showSplash && !fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
           <Header />
           <Routes>
             <Route path="/" element={<Bienvenida />} />
@@ -47,7 +51,7 @@ function App() {
             <Route path="/Proyectos" element={<Proyectos />} />
           </Routes>
         </div>
-      )}
+      </div>
     </BrowserRouter>
   );
 }
