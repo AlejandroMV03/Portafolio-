@@ -32,7 +32,7 @@ const habilidades = [
 
 export default function Habilidades() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pt-24 px-4 bg-transparent">
+    <div className="flex flex-col items-center justify-center min-h-screen pt-20 md:pt-24 px-4 bg-transparent">
       <div className="w-full max-w-6xl">
         <h2 className="text-4xl font-extrabold text-blue-900 text-center mb-12 animate-fade-in">
           Mis Habilidades

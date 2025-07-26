@@ -1,12 +1,13 @@
 export default function Bienvenida() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pt-24 px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen pt-20 md:pt-24 px-4">
       <div className="flex flex-col md:flex-row w-full max-w-4xl gap-8">
         {/* Columna izquierda: Bienvenida y Sobre mí */}
         <div className="flex flex-col flex-1 gap-6">
           {/* Card 1: Bienvenida */}
           <div className="bg-white/80 rounded-xl shadow-lg p-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-blue-900 cursor-pointer 
+            <h2
+              className="text-3xl font-bold mb-4 text-blue-900 cursor-pointer 
               animate-fade-in
               hover:text-yellow-500 hover:scale-105 transition duration-300 ease-in-out"
             >
@@ -21,7 +22,8 @@ export default function Bienvenida() {
 
           {/* Card 2: Sobre mí */}
           <div className="bg-white/80 rounded-xl shadow-lg p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-3 text-blue-900 cursor-pointer 
+            <h3
+              className="text-2xl font-semibold mb-3 text-blue-900 cursor-pointer 
               animate-fade-in delay-400
               hover:text-yellow-500 hover:scale-105 transition duration-300 ease-in-out"
             >
