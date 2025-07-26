@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+body{
+  background-color: rgb(245, 236, 236);
+}
+
+.backdrop-glass {
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
