@@ -1,6 +1,6 @@
 export default function Bienvenida() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pt-20 md:pt-24 px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen pt-[56px] md:pt-[64px] px-4">
       <div className="flex flex-col md:flex-row w-full max-w-4xl gap-8">
         {/* Columna izquierda: Bienvenida y Sobre mí */}
         <div className="flex flex-col flex-1 gap-6">
