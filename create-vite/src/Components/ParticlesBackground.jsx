@@ -13,79 +13,76 @@ export default function ParticlesBackground() {
     });
   }, []);
 
-  const options = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "#111827", // fondo tipo consola (gray-900)
+  const options = useMemo(() => ({
+    background: {
+      color: {
+        value: "#111827",
+      },
+    },
+    fullScreen: {
+      enable: true,
+      zIndex: -1,
+    },
+    fpsLimit: 60,
+    particles: {
+      number: {
+        value: 180,
+        density: {
+          enable: true,
+          area: 900,
         },
       },
-      fullScreen: {
+      color: {
+        value: "#10b981",
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.8,
+      },
+      size: {
+        value: { min: 1, max: 3 },
+      },
+      move: {
         enable: true,
-        zIndex: -1,
+        speed: 1,
+        direction: "none",
+        outModes: {
+          default: "bounce",
+        },
       },
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: 180, // aumenté a 180 partículas
-          density: {
-            enable: true,
-            area: 900,
-          },
-        },
-        color: {
-          value: "#10b981", // verde neón tipo tailwind emerald-500
-        },
-        shape: {
-          type: "circle",
-        },
-        opacity: {
-          value: 0.8,
-        },
-        size: {
-          value: { min: 1, max: 3 },
-        },
-        move: {
+      links: {
+        enable: true,
+        distance: 180,
+        color: "#22d3ee",
+        opacity: 0.6,
+        width: 1.2,
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: {
           enable: true,
-          speed: 1, // un poco más rápido
-          direction: "none",
-          outModes: {
-            default: "bounce",
-          },
+          mode: "repulse",  // efecto al pasar cursor
         },
-        links: {
-          enable: true,
-          distance: 180, // distancia aumentada para conectar más puntos
-          color: "#22d3ee", // azul cian (cyan-400)
-          opacity: 0.6, // líneas más visibles
-          width: 1.2, // líneas un poco más gruesas
+        onClick: {
+          enable: false,    // deshabilitamos el click para no crear partículas
+          mode: "none",
         },
       },
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
+      modes: {
+        repulse: {
+          distance: 120,
+          duration: 0.4,
         },
-        modes: {
-          repulse: {
-            distance: 120,
-            duration: 0.4,
-          },
-          push: {
-            quantity: 6,
-          },
+        push: {
+          quantity: 6,
         },
       },
-      detectRetina: true,
-    }),
-    []
-  );
+    },
+    detectRetina: true,
+  }), []);
 
   if (!init) return null;
 

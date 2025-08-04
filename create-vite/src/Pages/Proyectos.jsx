@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const proyectos = [
   {
@@ -16,7 +15,7 @@ const proyectos = [
     repositorio: "https://github.com/AlejandroMV03/RRHH.git",
     tipo: "Proyecto escolar",
     imagen: "/Image/rrhh.png",
-    deploy: null,
+    deploy: "https://alejandromex2.netlify.app/",
   },
   {
     titulo: "Todo con estilo",
@@ -24,7 +23,7 @@ const proyectos = [
     repositorio: "https://github.com/AlejandroMV03/Todoconestilo2.git",
     tipo: "Proyecto personal",
     imagen: "/Image/todo.png",
-    deploy: null,
+    deploy: "https://todoconestilo.netlify.app/",
   },
   {
     titulo: "DAM",
@@ -46,40 +45,43 @@ const proyectos = [
 
 export default function Proyectos() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pt-[56px] md:pt-[64px] px-4 bg-transparent">
-      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="flex flex-col items-center justify-start min-h-screen pt-16 px-4 bg-transparent">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        Mis Proyectos
+      </h2>
+
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {proyectos.map((proyecto, idx) => (
           <motion.div
             key={idx}
-            className="relative group perspective"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.2 }}
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 w-full h-[520px] flex flex-col"
           >
-            <div className="relative w-full h-80 transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-              {/* Front */}
-              <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">
-                <img
-                  src={proyecto.imagen}
-                  alt={`Vista previa de ${proyecto.titulo}`}
-                  className="w-full h-full object-cover"
-                />
+            <div className="h-[58%] w-full">
+              <img
+                src={proyecto.imagen}
+                alt={`Vista previa de ${proyecto.titulo}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-5 flex flex-col justify-between h-[42%] text-white overflow-y-auto">
+              <div>
+                <h3 className="text-lg font-bold mb-1">{proyecto.titulo}</h3>
+                <p className="text-sm text-gray-300 mb-2">{proyecto.descripcion}</p>
+                <p className="text-sm text-yellow-300 mb-2">{proyecto.tipo}</p>
               </div>
 
-              {/* Back */}
-              <div className="absolute inset-0 backface-hidden rotate-y-180 bg-white/90 rounded-xl p-6 flex flex-col justify-center text-center shadow-xl">
-                <h3 className="text-xl font-bold text-blue-900 mb-2">{proyecto.titulo}</h3>
-                <p className="text-gray-700 text-sm mb-2">{proyecto.descripcion}</p>
-                <p className="text-blue-700 text-sm font-semibold mb-3">{proyecto.tipo}</p>
-
+              <div className="space-y-1 text-sm mt-2">
                 {proyecto.repositorio && (
                   <a
                     href={proyecto.repositorio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 text-sm hover:underline"
+                    className="text-blue-400 hover:underline block"
                   >
-                    Ver repositorio
+                    Ver repositorio →
                   </a>
                 )}
                 {proyecto.deploy && (
@@ -87,34 +89,22 @@ export default function Proyectos() {
                     href={proyecto.deploy}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-600 text-sm hover:underline mt-1"
+                    className="text-green-400 hover:underline block"
                   >
-                    Ver sitio web
+                    Ver sitio web →
                   </a>
+                )}
+                {proyecto.titulo === "RRHH" && (
+                  <span className="text-xs text-gray-300 font-semibold">AUTH</span>
+                )}
+                {proyecto.titulo === "Todo con estilo" && (
+                  <span className="text-xs text-gray-300 font-semibold">CRUD</span>
                 )}
               </div>
             </div>
           </motion.div>
         ))}
       </div>
-
-      <style jsx>{`
-        .perspective {
-          perspective: 1200px;
-        }
-        .transform-style {
-          transform-style: preserve-3d;
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-        .group-hover\\:rotate-y-180:hover {
-          transform: rotateY(180deg);
-        }
-      `}</style>
     </div>
   );
 }
