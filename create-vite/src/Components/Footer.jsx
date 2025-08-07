@@ -142,8 +142,7 @@ const Footer = () => {
         {/* Derecha: Frase y año */}
         <div className="flex flex-col items-center gap-3 text-center min-w-[280px] text-gray-400 text-sm sm:text-base">
           <p className="text-yellow-400 text-lg sm:text-xl font-semibold italic max-w-[320px] leading-snug">
-            "Si puedes imaginarlo, <br /> puedes programarlo."
-            <br />
+            "The best way to predict the future is to invent it"<br></br> 
             <span className="text-xs text-gray-300 mt-1 font-normal not-italic">
               — Alan Kay (Pionero en programación orientada a objetos)
             </span>

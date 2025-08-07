@@ -40,7 +40,7 @@ export default function Videoblogs() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-5 flex flex-col justify-between h-1/3 text-white">
+            <div className="p-5 flex flex-col justify-between h-1/3 text-white overflow-y-auto">
               <h3 className="text-lg font-bold mb-2">{video.titulo}</h3>
               <p className="text-sm text-gray-300 mb-4">{video.descripcion}</p>
               <a

@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 const proyectos = [
   {
     titulo: "Park Amigo",
-    descripcion: "Sistema completo de estacionamiento con aplicaciones móvil y de escritorio. Incluye versiones, ramas y actualizaciones frecuentes.",
+    descripcion:
+      "Sistema completo de estacionamiento con aplicaciones móvil y de escritorio. Incluye versiones, ramas y actualizaciones frecuentes.",
     repositorio: "https://github.com/AlejandroMV03/Park-Amigo-V2.0.git",
     tipo: "Proyecto escolar",
     imagen: "/Image/park.png",
@@ -19,7 +20,8 @@ const proyectos = [
   },
   {
     titulo: "Todo con estilo",
-    descripcion: "Tienda en línea de bolsos, perfumes y más. Proyecto creado para una persona que deseaba una tienda web.",
+    descripcion:
+      "Tienda en línea de bolsos, perfumes y más. Proyecto creado para una persona que deseaba una tienda web.",
     repositorio: "https://github.com/AlejandroMV03/Todoconestilo2.git",
     tipo: "Proyecto personal",
     imagen: "/Image/todo.png",
@@ -27,7 +29,8 @@ const proyectos = [
   },
   {
     titulo: "DAM",
-    descripcion: "Sitio web en progreso para una clienta enfocada en estética, cuidado de piel, maquillaje y uñas.",
+    descripcion:
+      "Sitio web en progreso para una clienta enfocada en estética, cuidado de piel, maquillaje y uñas.",
     repositorio: null,
     tipo: "Proyecto personal",
     imagen: "/Image/dam.png",
@@ -40,6 +43,15 @@ const proyectos = [
     tipo: "Proyecto personal",
     imagen: "/Image/Creavix.png",
     deploy: null,
+  },
+  {
+    titulo: "Chatbot",
+    descripcion:
+      "Chatbot creado para la empresa Top Mexico Real Estate, encargada de bienes raíces. Implementa IA para ayudar a encontrar una casa según tu presupuesto, lugar y necesidades.",
+    repositorio: null,
+    tipo: "Proyecto personal",
+    imagen: "/Image/topreal.png", // pon la imagen que quieras aquí
+    deploy: "https://topmexicorealestate.netlify.app/",
   },
 ];
 
@@ -99,6 +111,9 @@ export default function Proyectos() {
                 )}
                 {proyecto.titulo === "Todo con estilo" && (
                   <span className="text-xs text-gray-300 font-semibold">CRUD</span>
+                )}
+                {proyecto.titulo === "Chatbot" && (
+                  <span className="text-xs text-gray-300 font-semibold">RETO</span>
                 )}
               </div>
             </div>

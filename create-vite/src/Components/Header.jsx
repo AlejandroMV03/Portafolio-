@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-800 md:bg-white/10 md:backdrop-blur-md p-4 text-white fixed w-full top-0 left-0 z-50 h-16 md:h-20">
+      <header className="header-led-border bg-gray-800 md:bg-white/10 md:backdrop-blur-md p-4 text-white fixed w-full top-0 left-0 z-50 h-16 md:h-20 rounded-md">
         <nav className="flex justify-between items-center h-full max-w-6xl mx-auto px-4">
           <button
             onClick={recargarPagina}
@@ -150,6 +150,51 @@ export default function Header() {
             </li>
           </ul>
         </div>
+
+        <style>{`
+          .header-led-border {
+            position: relative;
+            z-index: 50;
+            border-radius: 12px;
+            border: 2px solid transparent;
+          }
+          .header-led-border::before {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 14px;
+            background: linear-gradient(
+              90deg,
+              transparent 0%,
+              rgba(0, 130, 255, 0.95) 40%,
+              rgba(0, 130, 255, 1) 50%,
+              rgba(0, 130, 255, 0.95) 60%,
+              transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: led-move 4s linear infinite;
+            -webkit-mask:
+              linear-gradient(#fff 0 0) content-box, 
+              linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            border: 2px solid transparent;
+            box-sizing: border-box;
+            z-index: -1;
+          }
+          @keyframes led-move {
+            0% {
+              background-position: 200% 0;
+            }
+            100% {
+              background-position: -200% 0;
+            }
+          }
+        `}</style>
       </header>
 
       <div className="h-16 md:h-20" />
